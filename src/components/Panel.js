@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
     panelRoot: {
@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
 
 const Panel = (props) => {
     return (
-        <div style={styles.panelRoot}>
+        <View style={styles.panelRoot}>
             {props.children}
-        </div>
+        </View>
     );
 }
 

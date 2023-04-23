@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
 export default function ExerciseBlock(props) {
     console.log(props);
     return (
-        <div style={styles.exerciseBlock}>
-            <div style={styles.exerciseImage}>
+        <View style={styles.exerciseBlock}>
+            <View style={styles.exerciseImage}>
                 <Image
                     style={{
                         width: 120,
@@ -24,7 +24,7 @@ export default function ExerciseBlock(props) {
                     }}
                     source={{uri: props.data.image}}
                 />
-            </div>
-        </div>
+            </View>
+        </View>
     );
 }

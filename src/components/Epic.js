@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import IconButton from './IconButton';
 
@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         justifyContent: 'space-around',
+        flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'white',
         zIndex: 0,
@@ -22,11 +23,11 @@ const styles = StyleSheet.create({
 
 const Epic = ({ buttons, onClick }) => {
     return (
-        <div style={styles.epicRoot}>
+        <View style={styles.epicRoot}>
             {buttons.map(btn => (
                 <IconButton onClick={() => onClick(btn)} src={btn.image} />
             ))}
-        </div>
+        </View>
     );
 }
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Image } from "react-native"
+import { StyleSheet, Pressable, Image, View } from "react-native"
 
 
 const styles = StyleSheet.create({
@@ -12,9 +12,9 @@ const IconButton = ({ src, onClick, size }) => {
     // size = [small | medium | large]
     return (
         <Pressable onPress={(...args) => onClick(...args)}>
-            <div style={styles.iconButtonRoot}>
+            <View style={styles.iconButtonRoot}>
                 <Image source={{uri: src, height: 40}} />
-            </div>
+            </View>
         </Pressable>
     );
 }
