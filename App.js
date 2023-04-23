@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Epic from './src/components/Epic';
 import MainScreen from './screens/MainScreen';
@@ -8,8 +8,6 @@ import Panel from './src/components/Panel';
 import Screen from './src/components/Screen';
 import ScreenManager from './src/components/ScreenManager';
 import TrainScreen from './screens/TrainScreen';
-import { ScrollView } from 'react-native-web';
-
 
 export default function App() {
   const [state, setState] = React.useState({
@@ -25,7 +23,6 @@ export default function App() {
       <StatusBar style="auto" />
 
       <ScrollView style={styles.screenContainer}>
-        {/* <div > */}
           <ScreenManager activeId={state.activeScreenId}>
             <Screen id="main-screen">
               <MainScreen openScreen={openScreen} />
@@ -34,7 +31,6 @@ export default function App() {
               <TrainScreen/>
             </Screen>
           </ScreenManager>
-        {/* </div> */}
       </ScrollView>
 
       <Epic
