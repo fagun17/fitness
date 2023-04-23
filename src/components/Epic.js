@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
 const Epic = ({ buttons, onClick }) => {
     return (
         <View style={styles.epicRoot}>
-            {buttons.map(btn => (
-                <IconButton onClick={() => onClick(btn)} src={btn.image} />
+            {buttons.map((btn, index) => (
+                <IconButton key={index} onClick={() => onClick(btn)} src={btn.image} />
             ))}
         </View>
     );
