@@ -1,13 +1,20 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, FlatList } from "react-native";
 import React from "react";
 
-import "./ExerciseBlock.css";
+const styles = StyleSheet.create({
+    exerciseBlock: {
+        height: 200
+    },
+    exerciseImage: {
+        height: 200
+    }
+});
 
 export default function ExerciseBlock(props) {
     console.log(props);
     return (
-        <div className="exercise-block">
-            <div className="exercise-image">
+        <div style={styles.exerciseBlock}>
+            <div style={styles.exerciseImage}>
                 <Image
                     style={{
                         width: 120,
