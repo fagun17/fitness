@@ -19,7 +19,7 @@ export default function App() {
   }
 
   return (
-    <View>
+    <View style={styles.root}>
       <StatusBar style="auto" />
 
       <ScrollView style={styles.screenContainer}>
@@ -46,8 +46,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  root: {
+    height: '100%'
+  },
   screenContainer: {
-    height: 'calc(100vh - 70px)'
+    height: '100%'
   }
 })
  
