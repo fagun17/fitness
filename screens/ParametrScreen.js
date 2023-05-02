@@ -1,39 +1,64 @@
 import React, { useState } from 'react'
 import { Button, Image, StyleSheet, TextInput, View } from 'react-native'
 import Gucci from '../components/Gucci'
+import { NativeBaseProvider, Select } from 'native-base'
+
+import NumberInput from '../src/components/NumberInput';
 
 export default function Form() {
-	const [text, setValue] = useState('')
+	const [state, setState] = useState({
+		age: null,
+		height: null,
+		weight: null,
+		sex: null
+	});
 
-	const onChange = text => {
-		setValue(text)
+	const onChange = (field, value) => {
+		setState({ ...state, [field]: value });
 	}
+
+	const getInputHandler = (field) => (value) => onChange(field, value);
+
 	return (
 		<View>
 			<Gucci />
-			<TextInput
+			<NumberInput 
 				style={styles.input}
-				onChangeText={onChange}
+				onChange={getInputHandler('age')}
+				value={state.age}
 				placeholder='Введите возраст...'
 			/>
-			<TextInput
+			<NumberInput 
 				style={styles.input}
-				onChangeText={onChange}
+				onChange={getInputHandler('height')}
+				value={state.height}
 				placeholder='Введите рост...'
 			/>
-			<TextInput
+			<NumberInput 
 				style={styles.input}
-				onChangeText={onChange}
+				onChange={getInputHandler('weight')}
+				value={state.weight}
 				placeholder='Введите вес...'
 			/>
-			<TextInput
-				style={styles.input}
-				onChangeText={onChange}
-				placeholder='Введите пол...'
-			/>
-			<Button color='#20B2AA' title='СОХРАНИТЬ' />
-			<Button color='#20B2AA' title='СБРОСИТЬ' />
-			<Button color='#20B2AA' title='АНАЛИЗ ПАРАМЕТРОВ ЗДОРОВЬЯ' />
+			<View style={styles.select_wrapper}>
+				<Select selectedValue={state.sex} minWidth="200" accessibilityLabel="Укажите пол" placeholder="Укажите пол" _selectedItem={{
+						bg: "teal.600",
+						// endIcon: <CheckIcon size="5" />
+					}} mt={1} onValueChange={getInputHandler('sex')}
+				>
+					<Select.Item label="мужской" value="male" />
+					<Select.Item label="женский" value="female" />
+				</Select>
+			</View>
+			<View style={styles.button_wrapper}>
+				<Button color='#20B2AA' title='СОХРАНИТЬ' />
+			</View>
+			<View style={styles.button_wrapper}>
+				<Button color='#20B2AA' title='СБРОСИТЬ' />
+			</View>
+			<View style={styles.button_wrapper}>
+				<Button color='#20B2AA' title='АНАЛИЗ ПАРАМЕТРОВ ЗДОРОВЬЯ' />
+			</View>
 
 			<Image
 				style={styles.img}
@@ -58,4 +83,12 @@ const styles = StyleSheet.create({
 		height: 300,
 		weight: 200,
 	},
+	select_wrapper:{
+		marginHorizontal: '20%',
+		marginBottom: 20
+	},
+	button_wrapper:{
+		marginHorizontal: '20%',
+		marginBottom: 10
+	}
 })

@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
 const IconButton = ({ src, onClick, size }) => {
     // size = [small | medium | large]
     return (
-        <Pressable onPress={(...args) => onClick(...args)}>
-            <View style={styles.iconButtonRoot}>
+        <View style={styles.iconButtonRoot}>
+            <Pressable onPress={(...args) => onClick(...args)}>
                 <Image source={{uri: src, height: 40}} />
-            </View>
-        </Pressable>
+            </Pressable>
+        </View>
     );
 }
 

@@ -8,6 +8,8 @@ import {
 	View,
 } from 'react-native'
 
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import Screen from '../src/components/Screen'
 import ScreenManager from '../src/components/ScreenManager'
 import TrainBlockScreen from './TrainBlockScreen'
@@ -127,24 +129,25 @@ const TrainScreen = () => {
 
 						<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 							{trainBlocks.map((block, id) => (
-								<Pressable
-									style={{
-										width: '90%',
-										height: 120,
-										marginTop: 20,
-										marginBottom: id == trainBlocks.length - 1 ? 20 : 0,
-										borderRadius: 7,
-									}}
-									onPress={() =>
+
+							<View
+								key={id}
+								style={{
+									width: '100%',
+									height: 120,
+									marginTop: 20,
+									marginBottom: id == trainBlocks.length - 1 ? 20 : 0,
+									borderRadius: 7,
+								}}>
+								<TouchableOpacity
+									onPress={() => {
 										openScreen('train-block', { activeTrainBlock: block })
-									}
-									key={id}
+									}}
 								>
 									<Image
 										style={{
 											width: '100%',
 											height: 120,
-											marginTop: 20,
 											alignItems: 'center',
 											//marginBottom: id == trainBlocks.//length - 1 ? 20 : 0,
 											borderRadius: 7,
@@ -153,7 +156,8 @@ const TrainScreen = () => {
 											uri: block.image,
 										}}
 									/>
-								</Pressable>
+								</TouchableOpacity>
+							</View>
 							))}
 						</View>
 					</View>

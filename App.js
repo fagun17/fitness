@@ -9,6 +9,9 @@ import Screen from './src/components/Screen'
 import ScreenManager from './src/components/ScreenManager'
 import Gucci from './components/Gucci'
 
+import { NativeBaseProvider } from 'native-base';
+
+
 export default function App() {
 	const [state, setState] = React.useState({
 		activeScreenId: 'main-screen',
@@ -19,6 +22,7 @@ export default function App() {
 	}
 
 	return (
+	<NativeBaseProvider> {/* Костыль Костылевич. Не трогать */}
 		<View style={styles.root}>
 			<StatusBar style='auto' />
 
@@ -57,6 +61,7 @@ export default function App() {
 				]}
 			/>
 		</View>
+	</NativeBaseProvider>
 	)
 }
 
